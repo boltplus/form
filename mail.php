@@ -7,6 +7,13 @@ $mail->CharSet = 'utf-8';
 $debt = $_POST['debt'];
 $creditors = $_POST['creditors'];
 $income = $_POST['income'];
+$businessman = $_POST['businessman'];
+$hypothec = $_POST['hypothec'];
+$porychitel = $_POST['porychitel'];
+$xata = $_POST['xata'];
+$name = $_POST['name'];
+$phone = $_POST['phone'];
+$personal_data = $_POST['personal_data'];
 
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
@@ -29,7 +36,7 @@ $mail->addAddress('seregsokol@yandex.ru');     // Кому будет уходи
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Заявка с тестового сайта';
-$mail->Body    = '' .$debt . ' оставил заявку, его телефон ' .$creditors. '<br>Почта этого пользователя: ' .$income;
+$mail->Body    = '' .$debt . $creditors..$income..$businessman..$hypothec..$porychitel..$xata..$name..$phone..$personal_data;
 $mail->AltBody = '';
 
 if(!$mail->send()) {
