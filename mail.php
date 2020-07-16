@@ -4,6 +4,7 @@ require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
 $mail->CharSet = 'utf-8';
 
+$name = $_POST['user_name'];
 $debt = $_POST['debt'];
 $creditors = $_POST['creditors'];
 $income = $_POST['income'];
@@ -36,7 +37,7 @@ $mail->addAddress('seregsokol@yandex.ru');     // Кому будет уходи
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Заявка с тестового сайта';
-$mail->Body    = '' .$debt . $creditors..$income..$businessman..$hypothec..$porychitel..$xata..$name..$phone..$personal_data;
+$mail->Body    = '' .$name..$debt . $creditors..$income..$businessman..$hypothec..$porychitel..$xata..$name..$phone..$personal_data;
 $mail->AltBody = '';
 
 if(!$mail->send()) {
